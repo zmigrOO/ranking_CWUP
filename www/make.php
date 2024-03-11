@@ -21,6 +21,17 @@
 	// Execute the query if the table does not exist
 	$con->query($sql);
 	// Close the database connection
+	//add database user
+	$sql = "CREATE USER 'wyniki_konkursu'@'%' IDENTIFIED BY 'wyniki_konkursu'";
+	$con->query($sql);
+	$sql = "CREATE USER 'wyniki'@'%' IDENTIFIED BY 'wyniki'";
+	$con->query($sql);
+	$sql = "GRANT ALL PRIVILEGES ON ranking.* TO 'wyniki_konkursu'@'%'";
+	$con->query($sql);
+	$sql = "GRANT SELECT ON ranking.* TO 'wyniki'@'%'";
+	$con->query($sql);
+	$sql = "FLUSH PRIVILEGES";
+	$con->query($sql);
 	$con->close();
 	// Return the data as HTML
 	echo "Database created successfully<br>";

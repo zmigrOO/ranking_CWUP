@@ -17,7 +17,7 @@
         <input type="password" placeholder="Hasło" name="pass"></input>
         <input id="bttn" type="submit" value="Zaloguj"></input>
       </form>
-      <a href="wyniki.php">Sprawdź Wyniki</a>
+      <a id="link" href="wyniki.php">Sprawdź Wyniki</a>
     </div>
   </div>
 </body>

@@ -1,15 +1,18 @@
 <html>
-<head>	
-	<link rel="stylesheet" type="text/css" href="main.css">
-</head>
-<body>
-	<div id="main" style="overflow: scroll;">
-	<form name='form' method='post' action='update.php'>
-	<label for="team">add team:</label>
-	<input type='text' name="team" placeholder="team name">
-	<input type='submit' name="button" value="add">
-	<table>
-		<thead>
+	<head>	
+		<link rel="stylesheet" type="text/css" href="main.css">
+	</head>
+	<body>
+		<div id="main" style="overflow: scroll;">
+			<a class="download" href="wyniki_export_csv.php" target="_blank">
+			<button >Pobierz wyniki</button>
+			</a>
+			<form name='form' method='post' action='update.php'>
+				<label for="team">add team:</label>
+				<input type='text' name="team" placeholder="team name">
+				<input type='submit' name="button" value="add">
+				<table>
+					<thead>
 			<th>Usuń</th>
 			<th>Nazwa Drużyny</th>
 			<th>Wynik1</th>
@@ -60,4 +63,8 @@
 </form>
 </div>
 </body>
+<script>
+	// export table to csv
+	
+</script>
 </html>
