@@ -2,7 +2,7 @@
 // FILEPATH: /X:/xampp/htdocs/wyniki_raw.php
 // Connect to the database
 $con = mysqli_connect("mysql", "wyniki", "wyniki", "ranking");
-$sql = "SELECT * FROM `wyniki` ORDER BY (`Wynik1`+`Wynik2`+`Wynik3`+`Wynik4`+`Wynik5`) DESC";
+$sql = "SELECT *, (`Wynik1`+`Wynik2`+`Wynik3`+`Wynik4`+`Wynik5`) as suma FROM `wyniki` ORDER BY (`Wynik1`+`Wynik2`+`Wynik3`+`Wynik4`+`Wynik5`) DESC";
 
 $result = mysqli_query($con, $sql);
 foreach ($result as $row) {
