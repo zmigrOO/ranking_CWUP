@@ -7,7 +7,6 @@
 	$con->query($sql);
 	$con = mysqli_connect("mysql", "root", "rootPASS", "ranking");
 	// delete the table if it does exist
-	$sql = "DROP TABLE IF EXISTS wyniki";
 	$con->query($sql);
 	$sql = "CREATE TABLE wyniki (
 		NazwaUczestnika VARCHAR(30) PRIMARY KEY,
@@ -16,15 +15,17 @@
 		Wynik3 FLOAT default 0.0,
 		Wynik4 FLOAT default 0.0,
 		Wynik5 FLOAT default 0.0
-	)";
+	) IF NOT EXISTS";
 
 	// Execute the query if the table does not exist
 	$con->query($sql);
 	// Close the database connection
-	//add database user
-	$sql = "CREATE USER 'wyniki_konkursu'@'%' IDENTIFIED BY 'wyniki_konkursu'";
+	//add database user IF NOT EXISTS
+
+
+	$sql = "CREATE USER 'wyniki_konkursu'@'%' IDENTIFIED BY 'wyniki_konkursu' IF NOT EXISTS";
 	$con->query($sql);
-	$sql = "CREATE USER 'wyniki'@'%' IDENTIFIED BY 'wyniki'";
+	$sql = "CREATE USER 'wyniki'@'%' IDENTIFIED BY 'wyniki' IF NOT EXISTS";
 	$con->query($sql);
 	$sql = "GRANT ALL PRIVILEGES ON ranking.* TO 'wyniki_konkursu'@'%'";
 	$con->query($sql);
